@@ -1,0 +1,46 @@
+import random
+#r_num = random.randint(0, 9)
+secretwordasalist0 = ["affidavit", "discovery", "motion", "client", "unconstitutional",
+                    "socratic", "westlaw", "judgment", "pleading", "amicus"]
+secretwordasalist = random.choice(secretwordasalist0)
+location = ""
+guess_count = 0
+guess_limit = 13
+guesslist = ["_"] * len(secretwordasalist)
+
+while guesslist != list(secretwordasalist):
+    var = input("Guess a letter: ")
+    if (var.isalpha() == False):
+        print("Invalid entry.")
+    elif (var.isalpha() == True) and (len(var) != 1):
+        print("Too many letters.  Guess only one letter: ")
+    elif var not in secretwordasalist:
+        guess_count += 1
+        guesses_left = guess_limit - guess_count
+        if (guess_count < guess_limit) and (guesses_left >= 2):
+           print("That letter is not in the secret word. Try again.")
+           print("You have " + str(guess_limit - guess_count) + " guesses left.")
+           continue
+        if guesses_left == 1:
+            print("That letter is not in the secret word. Try again.")
+            print("You have " + str(guess_limit - guess_count) + " guess left.")
+            continue
+        else:
+            print("Out of guesses. You lose :(")
+            break
+    elif var in secretwordasalist:
+        if secretwordasalist.count(var) == 1:
+            print("Yes! There is 1 " + var + " " + "in the secret word.")
+            for index, value in enumerate(secretwordasalist):
+                if value == var:
+                    guesslist[index] = var
+            print(guesslist)
+        else:
+            print("Yes!! There are " + str(secretwordasalist.count(var)) + " " + var + "'s"
+            + " in the secret word.")
+            for index, value in enumerate(secretwordasalist):
+                if value == var:
+                    guesslist[index] = var
+            print(guesslist)
+else:
+    print("Congrats! You got it.")
