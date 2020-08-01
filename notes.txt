@@ -1,0 +1,10 @@
+try 1 contained import random, creates a random number to select one of the secret words in a list
+try 2 contained code to check if it's a valid entry and if it contains only one letter
+try 3 put correct inputs in the correct spot...except if there are two of the same letter
+try 4 had everything so far
+try 5 dealt with if there are more than 1 of a letter in a word
+try 6 compared guesslist to secretwordasalist and ends the game when they match
+try 7 folded in the list of words and random word generator (note: you can convert strings within words to list without
+creating a separate list!)
+try 8 worked on creating a proper length guesslist
+try 9 works: the trick was not to use randomint, but to use randomchoice
